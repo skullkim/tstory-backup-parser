@@ -1,0 +1,52 @@
+
+<meta charset="utf-8">
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="./../style.css" />
+    <title>Mysql 백업과 복구</title>
+</head>
+<body id="tt-body-page" class="">
+<div id="wrap" class="wrap-right">
+    <div id="container">
+        <main class="main ">
+            <div class="area-main">
+                <div class="area-view">
+                    <div class="article-header">
+                        <div class="inner-article-header">
+                            <div class="box-meta">
+                                <h2 class="title-article">Mysql 백업과 복구</h2>
+                                <div class="box-info">
+                                    <p class="category">DataBase/mysql</p>
+                                    <p class="date">2022-07-31 18:38:28</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="article-view">
+                        <div class="contents_style">
+                            <p data-ke-size="size16">&nbsp; DB 백업은 시스템 충돌, 유저의 실수 등으로부터 데이터를 복구할 수 있게 하는 방법이다. 또 한, 데이터 백업은 MySql 업데이트를 위한 필수 과정이며 다른 시스템으로 MySql을 이전하거나 replic server를 만들기 위해서도 백업이 필요하다.</p>
+<p data-ke-size="size16">&nbsp; MySql은 다양한 백업 전략을 지원하고 있기 때문에 상황에 따라 필요한 전략을 사용할 수 있다.&nbsp;</p>
+<h2 data-ke-size="size26"><b>백업 전략 종류</b></h2>
+<h3 data-ke-size="size23"><b>Physical backup vs Logical backup</b></h3>
+<p data-ke-size="size16"><b>&nbsp;&nbsp;</b>Physical backup은 DB 데이터를 저장하는 모든 디렉터리들과 파일들을 그대로 복사한다. 이는 장애 발생 시 빠르게 복구되야 하는 대규모 DB에 적합한 방식이다.</p>
+<p data-ke-size="size16">&nbsp; Logical backup은 논리적인 DB 구조를 나타내는 정보(CREATE DATABASE, CREATE TABLE 문)들과 컨텐트(INSERT 문 또는 delimited-test files(데이터를 저장하고 있는 파일))를 저장한다. 이 방식은 데이터 규모가 작고 데이터 또는 테이블 구조에 대한 수정이 가해질 수 있을때 적합하다.</p>
+<p data-ke-size="size16">&nbsp; Physical backup은 다음과 같은 특성을 가지고 있다.</p>
+<p data-ke-size="size16">&nbsp; - DB 디렉터리와 파일을을 온전히 복사한다.</p>
+<p data-ke-size="size16">&nbsp; - 파일을 복사만 하기 때문에 logical backup 보다 빠르다</p>
+<p data-ke-size="size16">&nbsp; - 백업 용량이 logical backup보다 적다</p>
+<p data-ke-size="size16">&nbsp;</p>
+                        </div>
+                        <br/>
+                        <div class="tags">
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

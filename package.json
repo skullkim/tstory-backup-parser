@@ -1,0 +1,10 @@
+{
+  "name": "blogModifier",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "yunkiKim",
+  "license": "MIT",
+  "dependencies": {
+    "jsdom": "^20.0.2"
+  }
+}

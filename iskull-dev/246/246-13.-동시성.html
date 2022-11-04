@@ -1,0 +1,50 @@
+
+<meta charset="utf-8">
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="./../style.css" />
+    <title>13. 동시성</title>
+</head>
+<body id="tt-body-page" class="">
+<div id="wrap" class="wrap-right">
+    <div id="container">
+        <main class="main ">
+            <div class="area-main">
+                <div class="area-view">
+                    <div class="article-header">
+                        <div class="inner-article-header">
+                            <div class="box-meta">
+                                <h2 class="title-article">13. 동시성</h2>
+                                <div class="box-info">
+                                    <p class="category">도서/클린코드</p>
+                                    <p class="date">2022-02-03 11:39:35</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="article-view">
+                        <div class="contents_style">
+                            <p data-ke-size="size16">&nbsp;&nbsp;<span style="font-family: 'Noto Serif KR';">객체는 처리의 추상화다. 스레드는 일정의 추상화다.</span></p>
+<p data-ke-size="size16"><span style="font-family: 'Noto Serif KR';">&nbsp; 동시성과 깔끔한 코드는 양립하기 어렵다. 스레드를 하나만 실행하는 코드나 겉으로 보기에는 멀쩡하나 깊은 곳에서 문제가 있는 다중 스레드 코드는 시스템이 부하를 받기 전까지 멀쩡하게 돌아간다.</span></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16"><b><span style="font-family: 'Noto Serif KR';">동시성이 필요한 이유</span></b></p>
+<p data-ke-size="size16"><span style="font-family: 'Noto Serif KR';">&nbsp; 동시성은 coupling을 없애는 전략이다. 단일 스레드인 프로그램은 what과 when이 서로 밀접하다. 그래서 호출 스택을 살펴보면 프로그램 상태가 바로 드러난다.</span></p>
+<p data-ke-size="size16"><span style="font-family: 'Noto Serif KR';">&nbsp; what과 when을 분리하면 애플리케이션 구조와 효귤이 극적으로 좋아진다. 구조적인 관점에서 프로그램은 거대한 루프 하나가 아닌 작은 협력 프로그램 여럿으로 보인다. 따라서 시스템을 이해하기 쉽고 문제를 분리하고도 쉽다.</span></p>
+<p data-ke-size="size16"><span style="font-family: 'Noto Serif KR';">&nbsp; 예를 들어 웹 애플리케이션이 표준으로 사용하는 servlet의 경우 웹 혹은 EJB 컨테이너에서 동작한다. 이들 컨테이너는 동시성을 부분적으로 관리한다. 웹 요청이 들어오면 웹 서버는 비동기식으로 서블릿을 실행한다. 서블릿 프로그래머는 들어오는 모든 웹 요청을 관리할 필요가 없다. 원칙적으로 각 서블릿 스레드는 다른 서블릿 스레드와 무관하게 독자적으로 돌아간다.</span></p>
+<p data-ke-size="size16"><span style="font-family: 'Noto Serif KR';">&nbsp; 하지만 동시성이 이리 간단한 문제는 아니다. 웹 컨테이너가 제공하는 decoupling 전략은 완벽과 거리가 있다. 서블릿 프로그래머는 동시성을 정확히 구현하도록 각별한 주의와 노력을 기울여야 한다. 그럼에도 servelt model이 제공하는 구조적 이점은 크다.</span></p>
+<p data-ke-size="size16"><span style="font-family: 'Noto Serif KR';">&nbsp; 구조적 이점만을 위해 동시성을 채택하는 것은 아니다.&nbsp;</span></p>
+                        </div>
+                        <br/>
+                        <div class="tags">
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

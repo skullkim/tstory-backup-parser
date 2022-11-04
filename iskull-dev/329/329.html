@@ -1,0 +1,68 @@
+
+<meta charset="utf-8">
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="./../style.css" />
+    <title>Blocking I/O vs Non-Blocking I/O, Synchronous vs Asynchronous</title>
+</head>
+<body id="tt-body-page" class="">
+<div id="wrap" class="wrap-right">
+    <div id="container">
+        <main class="main ">
+            <div class="area-main">
+                <div class="area-view">
+                    <div class="article-header">
+                        <div class="inner-article-header">
+                            <div class="box-meta">
+                                <h2 class="title-article">Blocking I/O vs Non-Blocking I/O, Synchronous vs Asynchronous</h2>
+                                <div class="box-info">
+                                    <p class="category">programming</p>
+                                    <p class="date">2022-08-14 21:23:02</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="article-view">
+                        <div class="contents_style">
+                            <h2 data-ke-size="size26"><b>Blocking vs Non-Blocking</b>&nbsp;&nbsp;</h2>
+<p data-ke-size="size16">Blocking I/O는 통상적으로 synchronous이다. 흔히 언어 기본 서적에서 찾을 수 있는 파일 입출력(C의 경우 fopen(), fread(), fwrite()에 해당한다)은 기본적으로 blocking I/O다. 파일 입출력은 기본적으로 2차 메모리에 대한 입출력이다.</p>
+<p data-ke-size="size16">&nbsp; blocking Input이 발생하는 과정은 다음과 같다.</p>
+<p><figure class="imageblock alignCenter" >
+    <span data-lightbox="lightbox">
+        <img src="./img/img.png"  />
+    </span>
+    <figcaption></figcaption>
+</figure></p>
+<p data-ke-size="size16">&nbsp; blocking input은 위 그림에서 볼 수 있는 과정이 끝날 때 까지 애플리케이션은 아무런 동작도 하지 않는다. 그에 반해 non-blocking I/O는 다음과 같은 과정을 거친다.</p>
+<p><figure class="imageblock alignCenter" >
+    <span data-lightbox="lightbox">
+        <img src="./img/img_1.png"  />
+    </span>
+    <figcaption></figcaption>
+</figure></p>
+<p data-ke-size="size16">&nbsp; Non-blocking I/O는 blocking과 2번 까지 과정이 같다. 그러나 그 이후의 과정이 끝나는 것을 기다리지 않고 바로 I/O를 호출한 함수를 반환해 버린다. 이를 I/O 요청이 pending되었다고 한다. 파일 입출력 과정에서 실제로 디스크에 I/O를 진행하는 주체는 운영체제다.&nbsp; 따라서 non-blocking I/O는 운영체제에게 I/O를 위임하고 다른 테스크를 처리하는 것이다. 여기서 주의할 점은 3번 input 함수 return과정과 운영체제가 HDD에서 파일을 읽어오는 과정 중 어느 것이 먼저 발생할 지 모른다는 것이다.&nbsp; File I/O가 끝나면 끝남을 비동기로 통지하며 Thread2가 이 통지를 대기한다.</p>
+<h2 data-ke-size="size26"><b>Asynchronous programming</b></h2>
+<p data-ke-size="size16"><b>&nbsp;&nbsp;</b>비동기 프로그래밍은 네트워킹에 많이 사용되며 멀티 스레드 모델을 사용한다. 비동기는 non-blocking 아키텍처를 사용하기 때문에 실행을 막지 않고 동시에 한개 이상의 연산을 수행한다.</p>
+<p data-ke-size="size16">&nbsp; 비동기 프로그래밍에서는 특정 연산 종료를 기다리지 않고 여러개의 연관된 연산들을 병렬 실행할 수 있다. 비동기 통신에서는 메시질르 받는 즉시 응답하는 대신 처리 가능할 때 수신하고 처리한다.</p>
+<h2 data-ke-size="size26"><b>Synchronous programming</b></h2>
+<p data-ke-size="size16"><b>&nbsp;&nbsp;</b>동기는 blocking 아키텍처를 사용한다. 싱글스레드 모델을 사용하기 때문에 주어진 순서대로 한번에 한개의 연산만 실행된다. 따라서 하나의 연산이 실행 중인 경우 다른 연산은 blocking 된 상태다.&nbsp;</p>
+<h2 data-ke-size="size26"><b>Asynchronous vs Synchronous programming</b></h2>
+<p data-ke-size="size16"><b>&nbsp;&nbsp;</b>- 비동기는 멀티스레드다, 연산이나 프로그램 실행이 병렬로 실행될 수 있다.</p>
+<p data-ke-size="size16">&nbsp; - 동기는 싱글스레드다. 연산이나 프로그램 실행이 하나씩 실행된다.</p>
+<p data-ke-size="size16">&nbsp; - 비동기는 non-blocking이다. 동시에 여러 요청을 서버에 보낼 수 있다.</p>
+<p data-ke-size="size16">&nbsp; - 동기는 blocking이다. 한번에 하나의 요청만 보내고 서버가 응답을 보내길 기대린다.</p>
+                        </div>
+                        <br/>
+                        <div class="tags">
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

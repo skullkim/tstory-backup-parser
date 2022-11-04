@@ -1,0 +1,52 @@
+
+<meta charset="utf-8">
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="./../style.css" />
+    <title>라우터 그룹화</title>
+</head>
+<body id="tt-body-page" class="">
+<div id="wrap" class="wrap-right">
+    <div id="container">
+        <main class="main ">
+            <div class="area-main">
+                <div class="area-view">
+                    <div class="article-header">
+                        <div class="inner-article-header">
+                            <div class="box-meta">
+                                <h2 class="title-article">라우터 그룹화</h2>
+                                <div class="box-info">
+                                    <p class="category">node.js</p>
+                                    <p class="date">2020-11-26 18:45:17</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="article-view">
+                        <div class="contents_style">
+                            <p>경로가 같지만 요청 메서드가 다른 경우 라우터를 그룹화 할 수 있다.</p>
+<p>router.get('/', (req, res) =&gt; console.log('get'));</p>
+<p>router.post('/' (req, res) =&gt; console.log('post));</p>
+<p>위 두 라우터를 그룹화 하면</p>
+<p>router.route('/')</p>
+<p>&nbsp; .get((req, res) =&gt;{</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log('get');</p>
+<p>&nbsp; &nbsp;})</p>
+<p>&nbsp; .post((req, res)) =&gt; {</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log('post');</p>
+<p>&nbsp; });</p>
+                        </div>
+                        <br/>
+                        <div class="tags">
+                            #node #grouping router 
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+
+<meta charset="utf-8">
+<html lang="ko">
+<head>
+    <link rel="stylesheet" type="text/css" href="./../style.css" />
+    <title>REST(REpresentational State Transfer) API</title>
+</head>
+<body id="tt-body-page" class="">
+<div id="wrap" class="wrap-right">
+    <div id="container">
+        <main class="main ">
+            <div class="area-main">
+                <div class="area-view">
+                    <div class="article-header">
+                        <div class="inner-article-header">
+                            <div class="box-meta">
+                                <h2 class="title-article">REST(REpresentational State Transfer) API</h2>
+                                <div class="box-info">
+                                    <p class="category">Web</p>
+                                    <p class="date">2021-01-11 15:22:50</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="article-view">
+                        <div class="contents_style">
+                            <p>REST is a way of prividing interoperability between computer systems on the Internet.</p>
+<p>REST API는 로이 필딩이 자신의 논문(Architectural Sytles and the Design of Network-based Foftware Architectures)에서 처음으로 거론한 아키텍쳐이다.&nbsp;</p>
+<p>로이필딩의 HTTP/1.0명세 제작에 참석했도 하위 버전과의 호환성을 위한 고민을 하던 중 HTTP Object Model을 고안했고 이게 나중에 REST란 이름으로 논문으로 발표된다.</p>
+<p>REST API는 아키텍쳐 스타일 이면서 하이퍼 아키텍쳐 스타일이다-&gt;아키텍쳐 스타일 이면서 아키텩쳐 집합이다.</p>
+<p>&nbsp; &nbsp; REST는 프로토콜이나 표준이 아닌 아키텍쳐 원칙 세트이다. RESTful API를 통해 요청이 수행될때 RESTful API는 리소스 상태에 대한 표현을 요청자에게 전송한다. 이 정보는 JSON, HTML, XLT, 일반 텍스트를 통해 전송된다&nbsp;</p>
+<p>&nbsp; API가 RESTful하기 위해서는 다음 기준을 준수해야 한다.</p>
+<p>&nbsp; 1. Client-serve model: 클라이언트, 서버, 리소스로 구성되 있고 요청이 HTTP를 통해 관리되는 클라이언트-서버 아키텍쳐이다.&nbsp;</p>
+<p>&nbsp; 2.&nbsp; stateless client-server communication</p>
+<p>&nbsp; 3. Cache: 클리아언트-서버 상호작용을 간소화 하는 캐시 기능</p>
+<p>&nbsp; 4. 정보가 표쥰 형식으로 전송되기 위한 구성요소 간 통합 인터페이스(uniform interface).</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;4.1 Identification of resosurce: 요청된 리소스가 식별 가능하며 클라이언트에 전송된 표현과 분리되야 한다.</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;4.2 Maniplation of resources through representations: 수신한 표현을 통해 클라이언트가 리소스를 조작할 수 있어야 한다.</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;4.3 Self-description message: 클라이언트에 반환되는 자기 기술적(self-descriptive)메시지에 클라이언트가 정보를 어떠게 처리할지 설명하는 정보가 충분해야한다.</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;4.4 hypermedia as the engine of application state(HATEOAS): 클라이언트가 리소스에 액세스한 후 하이퍼링크를 사용해 현재 수행 가능한 기카 모든 작업을 찾을 수 있어야한다.</p>
+<p>&nbsp; &nbsp;5. Layered system: 요청된 정보를 검색하는 데 관련된 서버의 각 유형을 클라이언트가 볼 수 없는 구조로 체계화하는 계층화된 시스템</p>
+<p>&nbsp; 6. code on demand(optional): 요청을 받으면 서버에서 클라이언트로 실행 가능한 코드를 전송해 클라이언트 기능을 확장할 수 있는 기&nbsp; &nbsp; &nbsp; &nbsp; 능(Java script).</p>
+<p>위의 것들을 모두 만족하면 RESTful하다고 할 수 있다. 여기서 1, 2, 3, 5는 사실 HTTP만 제대로 사용하면 지킬 수 있다.</p>
+<p>진짜 문제가 되는 부분은 4.3, 4.4이다.</p>
+<p>Self-description message는 그 메시지 만으로도 원하는 정보를 얻을 수 있는 메시지이다. 이를 위해서는 메시지가 반드시 Host헤더를 통해 Host를 명시하고 Content-type을 정의해야 한다.&nbsp;</p>
+<p>HATEOAS는 application 상태가 Hyperlink만으로 전이가 되야한다 라는 의미를 가지고 있고 html이 이를 만족한다(예: a tag).</p>
+<p>&nbsp;</p>
+<p>API가 RESTful하지 않는 이유는 사람-기계의 통신이 아닌 기계-기계의 통신이기 때문이다. API는 HTML이 아닌 JSON을 주고 받는다. 이때 JSON은 hyperlink를 지원하지 않고 self-description을 불완전 하게 만족한다. 이는 JSON이 문법은 있으나 그 내부에 무엇이 들거갈지를 저의하고 있지 못하기 때문이다. 예를 들어 HTML에는 각 태그에 사용되는 프로퍼티를 레퍼런스가 정의하고 있지만 JSON은 key:value꼴에서 key와 value를 정확히 정의하지 못하고있다.</p>
+<p>&nbsp;</p>
+<p>self-description, HATEOAS는 클라이언트, 서버의 독립적 진화에 도움이 된다.</p>
+<p>self-description: 확장 가능한 커뮤티케이션이 가능. 메시지 만으로 원하는 정보를 얻을 수 있으므로</p>
+<p>HATEOAS: 애플리케이션 상태 전이의 late binding-&gt; 어떤 상태로 전이가 완료되서야 그 다음 전이가 될 수 있는 상태가 결정된다.</p>
+<p>-&gt;링크는 동적으로 변경된다.</p>
+<p>&nbsp;</p>
+<p>REST API는&nbsp; 결국 호환성을 위해 고안된 것이다. 실제로 HTTP는 호환성에 대한 엄청난 집착으로 구성되 있다.</p>
+<p>예를 들어:</p>
+<p>1. Referer-&gt;오타인데 수정을 안한다</p>
+<p>2. charset-&gt;잘못 지은 이름인데 수정을 안한다.</p>
+<p>3.HTTP/0.9를 크롬, 파이어 폭스가 아직도 지원한다.</p>
+<p>API에 대한 설명은 다음 링크를 참고</p>
+<p><a href="https://iskull-dev.tistory.com/71" target="_blank" rel="noopener">iskull-dev.tistory.com/71</a></p>
+<figure id="og_1610346151305" contenteditable="false" data-ke-type="opengraph" data-og-type="article" data-og-title="API(Applicatino Programming Interface)" data-og-description="API는 애플리케이션을 구축하고 통합하기 위한 정의 및 프로토콜세트이다. API는 정보 제공자와 정보 사용자 간의 계약으로서 소비자에게 필요한 콘텐츠와 생산자에세 핑요한 콘텐츠로 구성되 " data-og-host="iskull-dev.tistory.com" data-og-source-url="https://iskull-dev.tistory.com/71" data-og-url="https://iskull-dev.tistory.com/71" data-og-image="https://scrap.kakaocdn.net/dn/cggbpj/hyIUCmYBAz/jVU0VifJftKSgKsWZtgJL0/img.png?width=800&amp;height=800&amp;face=0_0_800_800,https://scrap.kakaocdn.net/dn/cW8l78/hyIS4yDY6V/HwEYIgFKd2Wf60ko2KhAzk/img.png?width=800&amp;height=800&amp;face=0_0_800_800"><a href="https://iskull-dev.tistory.com/71" target="_blank" rel="noopener" data-source-url="https://iskull-dev.tistory.com/71">
+<div class="og-image" style="background-image: url('https://scrap.kakaocdn.net/dn/cggbpj/hyIUCmYBAz/jVU0VifJftKSgKsWZtgJL0/img.png?width=800&amp;height=800&amp;face=0_0_800_800,https://scrap.kakaocdn.net/dn/cW8l78/hyIS4yDY6V/HwEYIgFKd2Wf60ko2KhAzk/img.png?width=800&amp;height=800&amp;face=0_0_800_800');">&nbsp;</div>
+<div class="og-text">
+<p class="og-title">API(Applicatino Programming Interface)</p>
+<p class="og-desc">API는 애플리케이션을 구축하고 통합하기 위한 정의 및 프로토콜세트이다. API는 정보 제공자와 정보 사용자 간의 계약으로서 소비자에게 필요한 콘텐츠와 생산자에세 핑요한 콘텐츠로 구성되</p>
+<p class="og-host">iskull-dev.tistory.com</p>
+</div>
+</a></figure>
+<p>&nbsp;</p>
+                        </div>
+                        <br/>
+                        <div class="tags">
+                            #API #REST #restful 
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>
