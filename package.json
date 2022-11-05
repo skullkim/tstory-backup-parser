@@ -5,6 +5,8 @@
   "author": "yunkiKim",
   "license": "MIT",
   "dependencies": {
+    "fs-extra": "^10.1.0",
     "jsdom": "^20.0.2"
-  }
+  },
+  "type": "commonjs"
 }

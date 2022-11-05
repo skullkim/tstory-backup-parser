@@ -1,0 +1,85 @@
+---
+layout:       post
+title:        "DDD (Domain Driven Design)-tmp"
+author:       "yunki kim"
+header-style: text
+catalog:      true
+tags: 
+
+---
+
+<head></head>
+<body id="tt-body-page" class="">
+<div id="wrap" class="wrap-right">
+    <div id="container">
+        <main class="main ">
+            <div class="area-main">
+                <div class="area-view">
+                    <div class="article-header"></div>
+                    <hr>
+                    <div class="article-view">
+                        <div class="contents_style">
+                            <p data-ke-size="size16">&nbsp; 도메인에 대한 이해가 없다면 좋은 소프트웨어를 만들 수 없다. 따라서 모든 소프트웨어의 시작점은 도메인이어야 한다. 프로젝트가 시작되면 사용되고 있는 도메인에 집중해야 한다. 소프트웨어의 목적은 특정 도메인을 향상시키는 것이므로, 이를 위해 소프트웨어가 생성된 도메인과 조화를 이뤄야 한다.</p>
+<p data-ke-size="size16">&nbsp; 도메인은 실제 세계에 존재하는 무언가 이다. 따라서 있는 그대로 코드에 반영할 수 없다. 따라서 추상화를 통해 도메인을 소프트웨어 구조로 바꾸어야 하며 이런 추상화가 모델이다. 통상적으로 도메인 특정 모델을 언급할 때 다이어그램을 그린다. 하지만 다이어그램 자체는 도메인 모델이 아니며 다이어그램이 전달하고자 하는 아이디어가 도메인 모델이다.</p>
+<p data-ke-size="size16">&nbsp; 도메인 주도 설계는 결국 도메인을 추상화한 모델을 중심으로 설계를 진행하는 것이다. 이를 달성하기 위해 ubiquitos language와 model driven design을 사용한다.</p>
+<h3 data-ke-size="size23"><b>Ubiquitos Language</b></h3>
+<p data-ke-size="size16">&nbsp; 도메인 전문가와 개발자가 협력할 때 사용하는 용어의 차이로 인해 커뮤니케이션에서 오류가 발생할 수 있다. 따라서 도메인 전문가와 개발자가 사용하는 용어를 통일시킬 필요가 있다. DDD의 핵심 원칙중 하나는 모델에 기반한 용어를 사용하는 것이다. 모델을 기반으로 하는 이 용어들은 커뮤니케이션, 코드, 다이어그램 등 모든 곳에 공통적으로 사용해야 한다.</p>
+<h3 data-ke-size="size23"><b>Model Driven Design</b></h3>
+<p data-ke-size="size16"><b>&nbsp;&nbsp;</b>좋은 모델을 만드는 것은 좋은 소프트웨어를 만들기 위한 조건이다. 하지만, 아무리 좋은 모델일지라도 코드로 표현하지 못한다면 좋은 소프트웨어는 만들어질 수 없다. 또 한, 아무리 완벽한 분석을 통해 나온 모델일지라도, 코드로 표현하지 못하는 경우가 존재한다. 이런 경우를 방지하기 위해 도메인 전문가와 개발자는 같이 도메인 모델을 구축해서 소프트웨어로 나타낼 수 있는 모델을 만들어야 한다.&nbsp;</p>
+<h3 data-ke-size="size23"><b>The Building Blocks Of A Model-Driven Design</b></h3>
+<p data-ke-size="size16"><b>&nbsp;&nbsp;</b>이에 Model-Driven Design에서 사용되는 주요 패턴들을 살펴보자. 이들은 DDD의 관점에서 소프트웨어 디자인과 객체 모델링의 주요 요소들을 나타낸다. 다음 다이어그램은 이런 요소들 간의 관계이다.</p>
+<p></p><figure class="imageblock alignCenter" width="657" height="472">
+    <span data-lightbox="lightbox">
+        <img src="/img/REREIChEb21haW4gRHJpdmVuIERlc2lnbiktdG1w/img.png" width="657" height="472">
+    </span>
+    <figcaption></figcaption>
+</figure><p></p>
+<h4 data-ke-size="size20"><b>Layered Architecture</b></h4>
+<p data-ke-size="size16"><b>&nbsp;&nbsp;</b>도메인과 연관된 코드들이 여러 레이어에 존재한다면, 코드가 더러워지고 이해하기 어려워진다. 조그만 UI의 변화도 도메인에 영향을 주게 된다. 따라서 프로그램을 여러 레이어로 나눠야 하며 하나의 레이어는 자신 아래에 있는 레이어에만 의존해야 한다. 도메인 로직은 하나의 계층에 응집되 있고 UI, 애플리케이션 등과 고립되 있어야 한다.</p>
+<p data-ke-size="size16">&nbsp; DDD는 4개의 레이어를 가지고 있다.</p>
+<table style="border-collapse: collapse; width: 100%;" border="1" data-ke-align="alignLeft">
+<tbody>
+<tr>
+<td>Presentation Layer</td>
+<td>정보를 나타내고 유저의 명령을 해석한다.</td>
+</tr>
+<tr>
+<td>Application Layer</td>
+<td>도메인간 상호작용을 관여한다. 비즈니스 로직을 포함하지 않고, 비즈니스 객체의 상태 역시 유지되지 않는다.하지만, 애플리케이션 진행 상태는 유지할 수 있다.</td>
+</tr>
+<tr>
+<td>Domain Layer</td>
+<td>도메인에 대한 정보를 포함한다. 소프트웨어의 핵심이며 비즈니스 객체들의 상태를 유지한다. 비즈니스 객체와 상태의 영속성은 infrastructure 레이어에서 관리된다.</td>
+</tr>
+<tr>
+<td>Infrastructure Layer</td>
+<td>다른 레이어들에게 서포트를하는 라이브러리 역할을 한다. 레이어들간의 커뮤니케이션을 담당하며 비즈니스 객체들에게 영속성을 제공한다.&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p data-ke-size="size16">&nbsp; 애플리케이션을 여러 개의 계층으로 나누고 각 레이어는 상호작용해야 한다. 그렇지 않다면 변경에 용이하지 못한 구조가 되어 변경의 영향이 곳곳에 퍼지게 된다. 도메인 계층에는 오직 핵심 도메인만 존재해야 한다. UI는 비즈느스 로직 또는 infrastructure 계층에 해야할 일과 결합되 있지 말아야 한다.</p>
+<h4 data-ke-size="size20"><b>Entities</b></h4>
+<p data-ke-size="size16"><b>&nbsp;&nbsp;</b>엔티티는 소프트웨어 전반에 걸처 동일하게 유지되는 식별자를 사용하는 객체다. 만약 인스턴스의 상태를 식별자로 사용한다면 서로 다른 두개의 인스턴스가 서로 같아지는 상황이 발생한다. 이런 객체는 엔티티가 아니다. 은행 계좌 시스템이 존재한다 해보자. 이 시스템에서 은행 계좌는 정수로 이뤄져 있으며 시스템이 살아있는 동안 바뀌지 않으며 연속성을 보장한다.</p>
+<p data-ke-size="size16">&nbsp; 따라서, 엔티티를 사용한다는 것은 고유한 식별자를 만드는 것과 같다. 고유한 식별자는 여러 방식으로 만들 수 있다. 예컨데, 모듈을 사용해 자동으로 만들거나 디비 테이블의 PK를 고유 식별자로 사용할 수 있다.&nbsp;</p>
+<h4 data-ke-size="size20"><b>Value Objects</b></h4>
+<p data-ke-size="size16"><b>&nbsp;&nbsp;</b>엔티티는 도메인 모델에 필요한 객체이지만 모든 객체를 엔티티로 정의해야 하는 것은 아니다. 엔티티를 정의하기 위해 식별자를 생성하는 것은 많은 비용이 필요하다. 또 한, 엔티티는 각 객체에 고유 식별자가 존재하기 때문에 재사용할 수 없어서 시스템 퍼포먼스를 떨어트린다.</p>
+<p data-ke-size="size16">&nbsp; 만약 객체가 어떤 상태를 가지고 있는 지가 객체의 식별보다 더 중요하고 고유 식별자가 존재하지 않는다면 이 객체를 Valud Object라 한다. 객체의 상태가 더 중요하다면 엔티티 대신 VO를 사용하는 것이 좋다.</p>
+<p data-ke-size="size16">&nbsp; VO는 불변이어야 한다. VO가 불변이고, 엔티티와 다르게 식별자가 존재하지 않다면 VO를 공유할 수 있다. 물론 VO가 가변이여도 공유할 수 는 있지만 그럴 경우 데이터 무결성을 보장하지 못한다.</p>
+<p data-ke-size="size16">&nbsp; VO는 다른 VO를 포함할 수 있고, 엔티티에 대한 참조 역시 가질 수 있다. VO는 도메인 객체가 가지는 속성을 단순히 포함하기 위해 사용되지만, 모든 속성을 나열하기만 해서는 안된다. 만약 다른 객체로 그룹화가 가능하다면, 객체로 그룹화한 필드를 가지고 있어야 한다. 예를 들어 소비자를 나타내는 VO가 있고 주소를 가지고 있어야 한다면, 시, 구 등의 정보를 각각의 필드로 가지고 있지 말고 주소를 나타내는 별도의 객체를 가지고 있어야 한다.</p>
+<h4 data-ke-size="size20"><b>Service</b></h4>
+<p data-ke-size="size16">&nbsp; 도메인을 분석하고 모델을 구성하는 객체들을 만들다 보면, 도메인의 일부분이 도메인 객체에 매핑되지 않는 문제가 발생한다. 통상적으로 도메인을 서술할 때 명사가 되는 것을 도메인 객체로 하고, 동사를 객체의 행위로 간주한다. 이 때, 일부 행위(동사)가 어떠한 객체에도 매핑되지 않는 경우가 발생한다. 이런 행위는 억지로 도메인 객체에 끼워넣는 대신 서비스를 정의해 사용해야 한다. 서비스는 상태를 가지지 않으며 단순히 도메인을 위한 기능을 제공하는 역할을 한다. 또 한, 엔티티와 VO를 제공하는 역할도 한다.</p>
+<p data-ke-size="size16">&nbsp; 서비스는 통상적으로 여러 객체들을 연결하는 점의 역할을 한다. 이것이 서비스의 행위가 도메인이 아닌 서비스에 속해야 하는 이유 중 하나다. 만약 이러한 행위가 도메인에 존재한다면, 도메인은 강한 결합을 갖게 된다.</p>
+<p data-ke-size="size16">&nbsp; 애플리케이션 레이어에만 서비스가 존재한다는 법은 없다. 서비스는 개념적으로 어디에도 속하지 않는 연산이 존재할때 해당 연산을 위해 사용하면 된다. 이때 해당 연산이 애플리케이션 레이어에 걸맞다면, 애플리케이션 레이어에 위치시켜야 한다.</p>
+                        </div>
+                        <br>
+                        <div class="tags"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+
+</body>
